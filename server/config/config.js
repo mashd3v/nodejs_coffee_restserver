@@ -12,4 +12,12 @@ if (process.env.NODE_ENV === 'dev') {
     urlDatabase = process.env.MONGO_URI;
 }
 
+/* Token Expiration */
+/* 60s, 60min, 24hr, 30d */
+process.env.TOKEN_EXPIRATION = 60 * 60 * 24 * 30;
+
+/* Authentication SEED */
+process.env.AUTH_SEED = process.env.AUTH_SEED || 'development-seed';
+
+
 process.env.URLDB = urlDatabase;
