@@ -22,6 +22,10 @@ let productSchema = new Schema({
         type: String,
         required: false,
     },
+    image: {
+        type: String,
+        required: false,
+    },
     aviable: {
         type: Boolean,
         required: true,

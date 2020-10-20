@@ -25,6 +25,7 @@ let verifyToken = (req, res, next) => {
 
 /* Verify Admin role */
 let verifyAdminRole = (req, res, next) => {
+
     let user = req.user;
 
     if (user.role === 'ADMIN_ROLE') {
@@ -37,9 +38,35 @@ let verifyAdminRole = (req, res, next) => {
             }
         });
     }
+
 }
+
+/* Verify Image Token */
+let verifyImageToken = (req, res, next) => {
+
+    let token = req.query.token;
+
+    jwt.verify(token, process.env.AUTH_SEED, (err, decoded) => {
+
+        if (err) {
+            return res.status(401).json({
+                ok: false,
+                err: {
+                    message: 'Token not valid.'
+                }
+            });
+        }
+
+        req.user = decoded.user;
+        next();
+
+    });
+
+}
+
 
 module.exports = {
     verifyToken,
     verifyAdminRole,
+    verifyImageToken,
 }
