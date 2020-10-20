@@ -70,7 +70,7 @@ app.put('/upload/:type/:id', (req, res) => {
             });
         }
 
-        if (type === 'users') {
+        if (type === 'user') {
             userImage(id, res, fileName);
         } else {
             productImage(id, res, fileName);
