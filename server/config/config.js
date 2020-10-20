@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'dev') {
 
 /* Token Expiration */
 /* 60s, 60min, 24hr, 30d */
-process.env.TOKEN_EXPIRATION = 60 * 60 * 24 * 30;
+process.env.TOKEN_EXPIRATION = '48h';
 
 /* Authentication SEED */
 process.env.AUTH_SEED = process.env.AUTH_SEED || 'development-seed';
